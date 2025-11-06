@@ -1,2 +1,2 @@
 # numTheoryinC
-solving number theory problems in c
+solving number theory problems and implemeting algorithms in C.
