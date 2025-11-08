@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{a4paper,margin=1in}
+\usepackage{setspace}
+\onehalfspacing
+
+\title{Exercise 8 – Representation of Natural Numbers in Base \emph{a}}
+\author{From \textit{Number Theory} by Maryam Mirzakhani and Roya Beheshti}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem}
+
+\noindent
+Let \(a\) be a natural number greater than \(1\).
+Prove that every natural number \(n\) can be written uniquely in the form
+\[
+n = c_0 + c_1 a + c_2 a^2 + \cdots + c_m a^m,
+\]
+where each coefficient satisfies \(0 \le c_i \le a-1\).
+We denote this representation by
+\[
+n = (c_m c_{m-1} \ldots c_1 c_0)_a.
+\]
+
+\section*{Proof}
+
+\textbf{Existence.}
+We prove by induction on \(n\) that such a representation exists.
+
+\smallskip
+If \(0 \le n < a\), then we can take \(m = 0\) and \(c_0 = n\);
+thus the claim holds for all \(n < a\).
+
+\smallskip
+Assume now that the statement holds for all numbers smaller than some \(n \ge a\),
+and consider \(n\) itself.
+By the division algorithm, there exist unique integers \(q,r\) such that
+\[
+n = aq + r, \qquad 0 \le r < a.
+\]
+Here \(r\) will serve as the least significant digit, that is \(c_0 = r\).
+Since \(q < n\), by the inductive hypothesis \(q\) has a base-\(a\) expansion
+\[
+q = c_1 + c_2 a + \cdots + c_m a^{m-1}.
+\]
+Multiplying this by \(a\) and adding \(r\) gives
+\[
+n = c_0 + c_1 a + c_2 a^2 + \cdots + c_m a^m,
+\]
+which is the desired representation.
+Hence every natural number can be expressed in this way.
+
+\smallskip
+\textbf{Uniqueness.}
+Suppose that \(n\) has two representations
+\[
+n = c_0 + c_1 a + \cdots + c_m a^m
+      = d_0 + d_1 a + \cdots + d_k a^k,
+\]
+where \(0 \le c_i,d_j < a\).
+Without loss of generality, assume \(m \le k\) and pad the shorter expansion with leading zeros if necessary.
+
+Subtracting the two expressions yields
+\[
+0 = (c_0 - d_0) + (c_1 - d_1)a + \cdots + (c_k - d_k)a^k.
+\]
+Let \(t\) be the smallest index such that \(c_t \ne d_t\).
+Then the right-hand side can be written as
+\[
+a^t \bigl[(c_t - d_t) + a(\text{integer})\bigr].
+\]
+Since \(a^t\) divides the whole expression, we obtain that \(a\) divides \((c_t - d_t)\).
+But \(|c_t - d_t| < a\), hence \(c_t - d_t = 0\), a contradiction.
+Therefore all digits coincide and the representation is unique.
+
+\smallskip
+\textbf{Conclusion.}
+Every natural number \(n\) has a unique base-\(a\) expansion
+\[
+n = c_0 + c_1 a + \cdots + c_m a^m,
+\qquad 0 \le c_i < a.
+\]
+\hfill\(\Box\)
+
+\end{document}
